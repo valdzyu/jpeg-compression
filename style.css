@@ -1,0 +1,155 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+}
+
+.wrapper {
+  background-color: #fff;
+  padding: 1rem 0;
+}
+
+.working-area {
+  -webkit-box-shadow: 8px 2px 26px 4px rgba(0,0,0,0.72);
+  box-shadow: 8px 2px 26px 4px rgba(0,0,0,0.72);
+  margin: 2rem 0;
+}
+
+.describe .title {
+  text-align: center;
+  font-weight: bold;
+  font-size: 26px;
+}
+
+.describe p,
+.description p{
+  margin: 0 2rem;
+  font-size: 18px;
+}
+
+.describe p:nth-child(2) {
+  margin-top: 1rem;
+}
+
+.describe p:last-child {
+  margin-bottom: 1rem;
+}
+
+.description .article-title {
+  font-weight: bold;
+}
+
+.description p {
+  margin-block-end: 0.5rem;
+}
+
+.description .article-title:first-child {
+  margin-top: 1rem;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.working-area {
+  display: flex;
+  height: 100%;
+  padding: 1rem 0;
+}
+
+.image-selector {
+  flex-direction: column;
+  flex: 1 1 0;
+  min-height: 100%;
+  min-width: 7.5%;
+  background: #fff;
+  text-align: center;
+}
+
+.transformation {
+  flex: 0 1 0;
+  min-height: 100%;
+  min-width: 32.5%;
+  background: #fff;
+  text-align: center;
+}
+
+.subsampling {
+  flex: 0 1 0;
+  min-width: 60%;
+  min-height: 100%;
+  background: #fff;
+  align-items: flex-start;
+  text-align: center;
+}
+
+.transformation, .subsampling {
+  background: #f0f0f6;
+}
+
+
+.images-block {
+  margin: auto;
+  min-width: 75px;
+  max-width: 75px;
+}
+
+.image-container {
+  min-height: 75px;
+  max-height: 75px;
+  background-color: #fff;
+  margin-top: 10px;
+}
+
+.image-container > * > img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.image-container > * > img:hover {
+  opacity: 0.7;
+  cursor: pointer;
+}
+
+input[name="image-selector"] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+input[name="image-selector"]:checked + img {
+  outline: 2px solid #0175ff;
+}
+
+.block-title {
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.image-block-transformation, .image-block-subsampling {
+  margin: auto;
+}
+
+.image-block-transformation {
+  width: 320px;
+}
+
+.image-block-subsampling {
+  width: 640px;
+}
+
+.transformation-controls{
+  text-align: left;
+}
+
+.subsampling-canvas {
+  transform: scale(2) translateY(25%);
+}
+
+.subsampling-transformation.controls {
+  text-align: left;
+}

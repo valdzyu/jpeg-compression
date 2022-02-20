@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>
+      Webová aplikace pro podporu výuky komprimačního algoritmu JPEG
+    </title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="describe">
+        <p class="title">
+          Podvzorkování Y, C<sub>b</sub>, C<sub>r</sub> obrazových kanálů v JPEG
+        </p>
+        <p>
+          Daný applet slouží ke znázornění prvních dvou kroků algoritmu JPEG –
+          transformace barev do barevného modelu YCBCR a následující
+          podvzorkování barvonosných složek obrazu.
+        </p>
+        <p>
+          Ovládání appletu je realizováno tzv. přepínači. Pomocí přepínačů lze
+          zobrazit jednotlivé složky obrazu a zvolit schéma podvzorkování. V
+          levé části okna lze vybrat obrázek pro zpracování.
+        </p>
+        <p>
+          Jakýkoliv obrázek v appletu se zvětší najetím kurzoru. Se stisknutou
+          klávesou Ctrl se objeví všechny lupy najednou.
+        </p>
+      </div>
+      <div class="working-area">
+        <div class="image-selector">
+          <div class="images-block">
+            <form action="#" class="image-control form">
+              <div class="image-container">
+                <label>
+                  <input type="radio" name="image-selector" value="1" checked />
+                  <img src="assets/1.png" alt="source" />
+                </label>
+              </div>
+              <div class="image-container">
+                <label>
+                  <input type="radio" name="image-selector" value="2" />
+                  <img src="assets/2.png" alt="source2" />
+                </label>
+              </div>
+              <div class="image-container">
+                <label>
+                  <input type="radio" name="image-selector" value="3" />
+                  <img src="assets/3.png" alt="source3" />
+                </label>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="transformation">
+          <div class="transformationRGB">
+            <div class="block-title">
+              <p>Původní obrázek</p>
+            </div>
+            <div class="image-block-transformation">
+              <div class="transformation-controls">
+                <form action="#" class="canvas-control form">
+                  <input
+                    type="radio"
+                    id="transformationRGB-select_original"
+                    name="transformationRGB-select"
+                    value="original"
+                    checked
+                  />
+                  <label for="transformationRGB-select_original"
+                    >Originál</label
+                  >
+                  <input
+                    type="radio"
+                    id="transformationRGB-select_r"
+                    name="transformationRGB-select"
+                    value="r"
+                  />
+                  <label for="transformationRGB-select_r">R</label>
+                  <input
+                    type="radio"
+                    id="transformationRGB-select_g"
+                    name="transformationRGB-select"
+                    value="g"
+                  />
+                  <label for="transformationRGB-select_g">G</label>
+                  <input
+                    type="radio"
+                    id="transformationRGB-select_b"
+                    name="transformationRGB-select"
+                    value="b"
+                  />
+                  <label for="transformationRGB-select_b">B</label>
+                </form>
+              </div>
+              <div>
+                <canvas
+                  class="transformationRGB-canvas"
+                  width="320"
+                  height="320"
+                ></canvas>
+              </div>
+            </div>
+          </div>
+          <div class="transformationYCC">
+            <div class="block-title">
+              <p>Transformace barev do modelu YC<sub>B</sub>C<sub>R</sub></p>
+            </div>
+            <div class="image-block-transformation">
+              <div class="transformation-controls">
+                <form action="#" class="canvas-control form">
+                  <input
+                    type="radio"
+                    id="transformationYCC-select_y"
+                    name="transformationYCC-select"
+                    value="y"
+                    checked
+                  />
+                  <label for="transformationYCC-select_y">Y</label>
+                  <input
+                    type="radio"
+                    id="transformationYCC-select_cb"
+                    name="transformationYCC-select"
+                    value="cb"
+                  />
+                  <label for="transformationYCC-select_cb">C<sub>B</sub></label>
+                  <input
+                    type="radio"
+                    id="transformationYCC-select_cr"
+                    name="transformationYCC-select"
+                    value="cr"
+                  />
+                  <label for="transformationYCC-select_cr">C<sub>R</sub></label>
+                </form>
+              </div>
+              <div>
+                <canvas
+                  class="transformationYCC-canvas"
+                  width="320"
+                  height="320"
+                ></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="subsampling">
+          <div class="subsampling-scheme controls">
+            <div class="block-title">
+              <p>Výběr podvzorkovacího schématu</p>
+            </div>
+            <form action="#" class="canvas-control form">
+              <input
+                type="radio"
+                id="subsampling-scheme-select_444"
+                name="subsampling-scheme-control"
+                value="4:4:4"
+                checked
+              />
+              <label for="subsampling-scheme-select_444">4:4:4</label>
+              <input
+                type="radio"
+                id="subsampling-scheme-select_420"
+                name="subsampling-scheme-control"
+                value="4:2:0"
+              />
+              <label for="subsampling-scheme-select_420">4:2:0</label>
+              <input
+                type="radio"
+                id="subsampling-scheme-select_422"
+                name="subsampling-scheme-control"
+                value="4:2:2"
+              />
+              <label for="subsampling-scheme-select_422">4:2:2</label>
+            </form>
+          </div>
+          <div>
+            <div class="block-title">
+              <p>Obrázek po podvzorkovaní</p>
+            </div>
+            <div class="image-block-subsampling">
+              <div class="subsampling-transformation controls">
+                <form action="#" class="canvas-control form">
+                  <input
+                    type="radio"
+                    id="subsampling-transformation-select_original"
+                    name="subsampling-transformation-select"
+                    value="original"
+                    checked
+                  />
+                  <label for="subsampling-transformation-select_original"
+                    >Originál</label
+                  >
+                  <input
+                    type="radio"
+                    id="subsampling-transformation-select_y"
+                    name="subsampling-transformation-select"
+                    value="y"
+                  />
+                  <label for="subsampling-transformation-select_y">Y</label>
+                  <input
+                    type="radio"
+                    id="subsampling-transformation-select_cb"
+                    name="subsampling-transformation-select"
+                    value="cb"
+                  />
+                  <label for="subsampling-transformation-select_cb"
+                    >C<sub>B</sub></label
+                  >
+                  <input
+                    type="radio"
+                    id="subsampling-transformation-select_cr"
+                    name="subsampling-transformation-select"
+                    value="cr"
+                  />
+                  <label for="subsampling-transformation-select_cr"
+                    >C<sub>R</sub></label
+                  >
+                </form>
+              </div>
+              <div>
+                <canvas
+                  class="subsampling-canvas"
+                  width="320"
+                  height="320"
+                ></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="description">
+        <p class="article-title">Transformace barev</p>
+        <p>
+          Prvním krokem je transformace barev, při které se obrázek ze svého
+          primárního barevného modelu RGB převádí do modelu YCBCR. Tento barevný
+          model odděluje informaci o světlosti od informace o barvě. Přičemž
+          kanál světlosti Y nese v sobě mnohem více informací než barevné kanály
+          C<sub>b</sub> a C<sub>r</sub>, což je dobře vidět po rozkiknuti
+          příslušných složek.K
+        </p>
+        <p class="article-title">Podvzorkování</p>
+        <p>
+          Podvzorkováním se míní redukce barvových dat obrázku. Celý obrázek se
+          dělí na určité bloky pixelů. Pak se vypočítá průměrná hodnota všech
+          pixelů v daném bloku. A nakonec se vypočtená hodnota přiřazuje každému
+          pixelu v bloku. Z důvodu, že lidské oko je citlivější na změnu jasu
+          než na změnu barvy, redukce probíhá pouze v barvonosných složkách
+          C<sub>b</sub> a C<sub>r</sub>.
+        </p>
+        <p class="article-title">Schémata podvzorkování</p>
+        <p>„4:2:0“ - dělení na bloky 2×2. Výsledná komprese je 50 %;</p>
+        <p>
+          „4:2:2“ - obrázek se dělí na bloky 2×1. Výsledná komprese je 33 %;
+        </p>
+        <p>
+          „4:4:4“ - každý pixel se v tomto případě zpracovává samostatně. Tím
+          pádem ke kompresi v daném kroku nedochází.
+        </p>
+      </div>
+    </div>
+  </body>
+  <script src="magnifier.js"></script>
+  <script src="canvas.js"></script>
+  <script src="controller.js"></script>
+  <script>
+    const controller = new CanvasController();
+    controller.init();
+  </script>
+</html>
